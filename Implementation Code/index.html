@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UAV's Software Requirements</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://unpkg.com/mathlive"></script>
+</head>
+<body>
+    <div class="container">
+        
+    <h1>UAV Flight Recommendation System by Parameter Interdependencies</h1>
+
+    <div class="main-layout">
+    <!-- Left Section -->
+
+
+    <div class="left-panel">
+        <button onclick="openPDFModal()">Import SRS</button>
+        <div id="pdfWindow">
+            <div class="pdf-header">
+                <span id="pdfTitle">SRS Document</span>
+                <div class="zoom-controls">
+                <button onclick="zoomPDF('in')">🔍+</button>
+                <button onclick="zoomPDF('out')">🔍−</button>
+                </div>
+            </div>
+            <div id="pdfViewer" class="pdf-content"></div>
+        </div>
+
+    </div>
+
+
+    <!-- Right Section -->
+    <div class="right-panel">
+        <div class="buttons">
+            <button onclick="openImportModal()">Import Taxonomy</button>
+            <button onclick="showAddRequirement()">Build Taxonomy</button>
+            <button onclick="parameterOptimize()">Parameter Optimize</button>
+            <!-- <button onclick="displayTaxonomyGraph()">Display Basic Clusters</button> -->
+            <!-- <button onclick="measureComputationTime()">Measure Computation Time</button> -->
+
+        </div>
+        <div id="importedTaxonomyInfo" style="margin-bottom: 1rem; font-weight: bold; color: #0066cc;"></div>
+        <div id="formContainer"></div>
+        <div id="message"></div>
+        <div id="output"></div>
+        <div id="graphSelector"></div>
+        <div id="graphContainer"></div>
+        <div id="graphLegend"></div>
+
+        
+
+    </div>
+    
+</div>
+
+    </div>
+
+    <!-- Modal for Import Taxonomy -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeImportModal()">&times;</span>
+            <h2>Import Taxonomy CSV</h2>
+            <input type="file" id="csvModalInput" />
+            <button onclick="displayFromModal()">Display</button>
+        </div>
+    </div>
+
+        <!-- Modal for Importing SRS PDF -->
+    <div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePDFModal()">&times;</span>
+        <h2>Import SRS PDF</h2>
+        <input type="file" id="pdfInput" accept="application/pdf" />
+        <button onclick="renderPDF()">Display</button>
+    </div>
+    </div>
+
+
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.1/math.min.js"></script>
+
+
+</body>
+</html>
